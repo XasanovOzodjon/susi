@@ -34,7 +34,7 @@ Telegram bot kerak bo‘lsa: [Telegram-Bot-template](https://github.com/XasanovO
 **npx** (GitHubdan, npm publish shart emas):
 
 ```bash
-npx github:XasanovOzodjon/susi -- install ~/Loyihalar/mening-app
+npx github:XasanovOzodjon/susi install .
 cd ~/Loyihalar/mening-app
 ./susi start
 ```

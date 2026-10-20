@@ -2,7 +2,7 @@
 # Susiezha: o‘rnatish va terminaldan ishga tushirish.
 #
 #   ./susi install [papka]     harnessni papkaga qo‘yadi
-#   npx github:XasanovOzodjon/susi -- install ~/Loyihalar/app
+#   npx github:XasanovOzodjon/susi install .
 #   ./susi start [--yes]       ofis + Cursor + 3 Antigravity
 #   ./susi stop                ofis serverni to‘xtatadi
 #   ./susi status
@@ -20,7 +20,7 @@ LIVE="$ROOT/board/live"
 PROFILES="$HOME/.setka/agy"
 
 usage() {
-  sed -n '2,10p' "$0" | sed 's/^# \?//'
+  sed -n '2,10p' "$0" | sed 's/^# \{0,1\}//'
   exit 2
 }
 
@@ -239,7 +239,12 @@ cmd_status() {
   bash "$ROOT/bus.sh" who 2>/dev/null || true
 }
 
-cmd="${1:-}"; shift || true
+cmd="${1:-}"
+if [ "$cmd" = "--" ]; then
+  shift || true
+  cmd="${1:-}"
+fi
+shift || true
 case "$cmd" in
   --dry-run) cmd_start --dry-run ;;
   install) cmd_install "${1:-}" ;;
