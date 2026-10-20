@@ -1,0 +1,12 @@
+---
+description: Security gate: pentester does not patch; authorized targets only.
+alwaysApply: true
+---
+
+# Security gate
+
+Test only this project, localhost, or staging the owner approved in writing.
+
+Pentester uses Strix + targeted cybersecurity skills. No exploit against third-party systems. No `fix-*` Strix skill. Findings → tickets to the owning builder with SHA.
+
+Do not put secrets in chat, git, board, or bus.

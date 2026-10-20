@@ -1,0 +1,15 @@
+---
+description: Django/DRF/Postgres/Redis backend conventions for Setka.
+globs: "**/*.py"
+alwaysApply: false
+---
+
+# Backend
+
+Django + DRF. Postgres is the source of truth. Redis is cache/broker, not the system of record.
+
+- Settings via env names only; never paste secret values.
+- Migrations are backward compatible. Dangerous behavior behind a flag.
+- Every endpoint: authz test that fails if permission is removed.
+- Telegram bot is a separate process from https://github.com/XasanovOzodjon/Telegram-Bot-template.
+- Do not edit frontend trees.

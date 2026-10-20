@@ -1,0 +1,17 @@
+.team/sessions/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+bus/presence/
+bus/cursor/
+board/live/
+.ecc/memory/
+.claude-mem/
+node_modules/
+package-lock.json
+.venv/
+__pycache__/
+*.pyc
+.DS_Store

@@ -1,0 +1,35 @@
+{
+  "name": "setka",
+  "version": "3.0.0",
+  "description": "Setka — Cursor + Antigravity agent harness. Grill, spec, tickets, then parallel Django/UI build.",
+  "bin": {
+    "setka": "./setka"
+  },
+  "files": [
+    "setka",
+    "bus.sh",
+    "team.conf",
+    "AGENTS.md",
+    "REGLAMENT.md",
+    "GEMINI.md",
+    "README.md",
+    ".env.example",
+    ".gitignore",
+    "scripts",
+    "roles",
+    "scene",
+    "board",
+    "templates",
+    "docs",
+    ".cursor",
+    ".agents"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XasanovOzodjon/Setka.git"
+  },
+  "license": "MIT"
+}

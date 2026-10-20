@@ -1,0 +1,15 @@
+---
+description: Frontend must use oil-ui directions and jakubkrehel polish, not generic AI UI.
+globs: "**/*.{tsx,jsx,vue,svelte,css,scss,html}"
+alwaysApply: false
+---
+
+# Frontend beauty
+
+Follow `.agents/skills/frontend-beauty/SKILL.md`.
+
+- Reference URL: skillui first.
+- New look: oil-ui, 2–3 distinct directions, owner picks.
+- After build: better-interface / better-ui.
+- No generic template UI (centered hero + gray cards + one accent).
+- scroll-world only with owner-approved paid renders.

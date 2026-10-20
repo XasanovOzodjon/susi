@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# npx/symlink: haqiqiy papkani top.
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do
+  DIR="$(cd "$(dirname "$SOURCE")" && pwd)"
+  SOURCE="$(readlink "$SOURCE")"
+  [ "$SOURCE" != /* ] && SOURCE="$DIR/$SOURCE"
+done
+ROOT="$(cd "$(dirname "$SOURCE")" && pwd)"
+exec "$ROOT/scripts/setka.sh" "$@"

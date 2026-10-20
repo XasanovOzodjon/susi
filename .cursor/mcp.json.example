@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "taskview": {
+      "command": "npx",
+      "args": ["-y", "taskview-mcp"],
+      "env": {
+        "TASKVIEW_URL": "http://127.0.0.1:1725",
+        "TASKVIEW_TOKEN": "tvk_replace_me"
+      }
+    },
+    "strix": {
+      "url": "https://app.strix.ai/mcp"
+    }
+  }
+}

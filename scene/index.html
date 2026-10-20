@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Setka ofisi — kim nima qilyapti</title>
+  <link rel="stylesheet" href="./office.css">
+</head>
+<body>
+  <a class="skip" href="#office">Ofisga o‘tish</a>
+  <header class="top">
+    <div class="brand">
+      <p class="eyebrow">Setka · kechki studiya</p>
+      <h1>Kim nima qilyapti</h1>
+    </div>
+    <ol class="pipe" id="pipe" aria-label="Qurilish bosqichi"></ol>
+    <div class="top-actions">
+      <p class="pulse" id="stamp" aria-live="polite"></p>
+      <button type="button" class="ghost" id="demoBtn" aria-pressed="false">Namuna</button>
+    </div>
+  </header>
+
+  <main id="office" class="office" aria-label="Ofis sahna">
+    <div class="night" aria-hidden="true"></div>
+    <div class="window" aria-hidden="true">
+      <span class="moon"></span>
+      <span class="city"></span>
+    </div>
+    <section class="cork" id="cork" aria-label="Doskadagi ticketlar"></section>
+    <div class="rack" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="plant" aria-hidden="true"></div>
+    <div class="desks" id="desks"></div>
+  </main>
+
+  <aside class="dossier" id="dossier" hidden>
+    <button type="button" class="close" id="closeDossier" aria-label="Yopish">×</button>
+    <p class="eyebrow" id="dJob"></p>
+    <h2 id="dName"></h2>
+    <p class="badge" id="dState"></p>
+    <p id="dStage"></p>
+    <h3>Hozir</h3>
+    <p id="dNow"></p>
+    <h3>Qilgan ishi</h3>
+    <ul id="dDone"></ul>
+    <h3>Ticketlari</h3>
+    <ul id="dTickets"></ul>
+    <h3>Oxirgi xatlar</h3>
+    <ul id="dMsgs"></ul>
+    <h3>Qadamlar</h3>
+    <ol id="dEvents"></ol>
+    <h3>Kapsula</h3>
+    <pre id="dHandoff"></pre>
+  </aside>
+
+  <section class="log" id="log" aria-label="Oxirgi voqealar"></section>
+  <p class="hint">Stolga yoki odamchaga bosing — nima qilgani, hozir nima qilayotgani, qaysi bosqich. Ma’lumot: shina, doska, <code>scripts/live.sh</code>.</p>
+  <script src="./office.js"></script>
+</body>
+</html>
