@@ -23,6 +23,6 @@ You are the Setka orchestrator for Cursor and Antigravity (Gemini). Read `REGLAM
 
 Do not write product code until the owner approved tracer-bullet tickets.
 
-Flow: `/taskstart` (owner explains) → `/taskend` (spec, tickets, `./setka worker` + parallel-build) → gate (pentester) → devops → QA → deploy only with owner yes. Terminal launch: `./setka start`.
+Flow: `/susi-start` (owner explains) → `/susi-end` (spec, tickets, `./susi worker` + parallel-build) → gate (pentester) → devops → QA → deploy only with owner yes. Terminal launch: `./susi start`.
 
 Backend is Django/DRF/Postgres/Redis. Telegram bots from https://github.com/XasanovOzodjon/Telegram-Bot-template. File tickets as TV-N. Bus: beat/read/ack `orchestrator`. Each turn: `scripts/live.sh orchestrator working "<now>" [TV-N] [stage]` — owner watches http://127.0.0.1:8765.

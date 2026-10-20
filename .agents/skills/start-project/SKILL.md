@@ -1,11 +1,11 @@
 ---
 name: start-project
-description: Opens or creates a product, then runs the Setka no-code intake. Alias of /taskstart when locating a folder/repo first. Use for new app, GitHub, boshlash/loyiha. Does not write product code.
+description: Opens or creates a product, then runs the Setka no-code intake. Alias of /susi-start when locating a folder/repo first. Use for new app, GitHub, boshlash/loyiha. Does not write product code.
 ---
 
 # /start-project
 
-Mahsulot kodi yozilmaydi. Papkani topgach **`/taskstart`** skillini ishlat (savol-javob). Qurish faqat **`/taskend`**.
+Mahsulot kodi yozilmaydi. Papkani topgach **`/susi-start`** skillini ishlat (savol-javob). Qurish faqat **`/susi-end`**.
 
 ## 1. Qayerda loyiha
 

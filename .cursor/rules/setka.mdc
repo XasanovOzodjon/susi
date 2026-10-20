@@ -7,8 +7,8 @@ alwaysApply: true
 
 Read `AGENTS.md` and `REGLAMENT.md`. Default role is orchestrator unless the user named another. Setka agents (`orchestrator`, `backend`, `frontend`, `pentester`, `devops`, `qa`) outrank ECC agents for this workflow.
 
-- Owner flow: `/taskstart` (explain + Q&A) → `/taskend` (spec, tickets, start builders). No product code before `/taskend`.
-- Launch harness from terminal: `./setka start` (office, Cursor, 3× Antigravity).
+- Owner flow: `/susi-start` (explain + Q&A) → `/susi-end` (spec, tickets, start builders). No product code before `/susi-end`.
+- Launch harness from terminal: `./susi start` (office, Cursor, 3× Antigravity).
 - No product code until approved TV-N tickets exist.
 - Prefer `graphify-out/` over reading the whole tree.
 - Backend: Django, DRF, Postgres, Redis. Telegram bots: XasanovOzodjon/Telegram-Bot-template.

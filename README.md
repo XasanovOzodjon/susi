@@ -34,45 +34,46 @@ Telegram bot kerak bo‘lsa: [Telegram-Bot-template](https://github.com/XasanovO
 **npx** (GitHubdan, npm publish shart emas):
 
 ```bash
-npx github:XasanovOzodjon/Setka -- install ~/Loyihalar/mening-app
+npx github:XasanovOzodjon/susi -- install ~/Loyihalar/mening-app
 cd ~/Loyihalar/mening-app
-./setka start
+./susi start
 ```
 
 **git clone**:
 
 ```bash
-git clone git@github.com:XasanovOzodjon/Setka.git
-./Setka/setka install ~/Loyihalar/mening-app
+git clone git@github.com:XasanovOzodjon/susi.git
+cd susi
+./susi install ~/Loyihalar/mening-app
 cd ~/Loyihalar/mening-app
-./setka start
+./susi start
 ```
 
-Shu harness papkasida: `./setka start`
+Shu harness papkasida: `./susi start`
 
 Mashinaga skill CLI lar (bir marta): `./scripts/bootstrap.sh`
 
 Skript ketma-ket aytadi va ochadi:
 
 1. Ofis — http://127.0.0.1:8765
-2. **Cursor** — chatga `/taskstart`, loyihani tushuntirasiz, tugagach `/taskend`
+2. **Cursor** — chatga `/susi-start`, loyihani tushuntirasiz, tugagach `/susi-end`
 3. **Antigravity 1** — backend (1-akkaunt)
 4. **Antigravity 2** — frontend (2-akkaunt)
 5. **Antigravity 3** — pentester/QA (3-akkaunt)
 
-Har qadamda: Enter = ochish, `s` = o‘tkazish. To‘xtatish: `./setka stop`
+Har qadamda: Enter = ochish, `s` = o‘tkazish. To‘xtatish: `./susi stop`
 
-`/taskend` spec + ticket yozadi va qurishni boshlaydi (orchestrator kod yozmaydi).
+`/susi-end` spec + ticket yozadi va qurishni boshlaydi (orchestrator kod yozmaydi).
 
 ## Antigravity akkauntlar
 
-`./setka start` uchta **alohida profil** ochadi (`~/.setka/agy/1`, `2`, `3`). Bu Chrome profiliga o‘xshaydi — har biri o‘z Google loginini saqlaydi.
+`./susi start` uchta **alohida profil** ochadi (`~/.setka/agy/1`, `2`, `3`). Bu Chrome profiliga o‘xshaydi — har biri o‘z Google loginini saqlaydi.
 
 1. 1-oyna ochiladi → **Sign in with Google** → backend uchun 1-akkaunt.
 2. 2-oyna → **boshqa** Google akkaunt → frontend.
 3. 3-oyna → 3-akkaunt → pentester (keyin QA/devops shu yerda).
 
-Bir xil akkauntni uchtasiga kiritmang. Agar noto‘g‘ri akkaunt kirsangiz: o‘sha oynada sign out, yoki `rm -rf ~/.setka/agy/1` qilib qayta `./setka worker backend`.
+Bir xil akkauntni uchtasiga kiritmang. Agar noto‘g‘ri akkaunt kirsangiz: o‘sha oynada sign out, yoki `rm -rf ~/.setka/agy/1` qilib qayta `./susi worker backend`.
 
 Har oynada shu papka ochiq bo‘lishi kerak. Chatga Cmd+V (prompt buferda) yoki agentni tanlang: `backend` / `frontend` / `pentester`.
 
@@ -94,21 +95,9 @@ chmod +x bus.sh scripts/*.sh .cursor/hooks/*.sh
 ./scripts/bootstrap.sh
 ```
 
-Bu mashinada allaqachon o‘rnatilgan: Matt Pocock skilllari, Strix pentest skilllari, skillui, ECC (Cursor `--no-hooks` + Antigravity), cybersecurity vendor (`~/.setka/vendor/`).
+`./susi install` kompyuterga bir marta Graphify va claude-mem ni ham qo‘yadi. Har loyihada qayta emas. Gemini kaliti so‘ralsa, o‘sha payt kiriting (ko‘rinmaydi). Kalit `~/.claude-mem/` da, gitda emas.
 
-Graphify CLI sekin o‘rnatilishi mumkin:
-
-```bash
-python3 -m pip install --user graphifyy
-```
-
-Keyin (interaktiv, bir marta — chat xotirasi):
-
-```bash
-npx claude-mem install    # Cursor ni tanlang, provider = Gemini
-```
-
-Cursor yoki Antigravity ni qayta oching.
+Cursor yoki Antigravity ni shundan keyin qayta oching.
 
 Cybersecurity paketi katta. Istamasangiz: `SETKA_SKIP_CYBER=1 ./scripts/bootstrap.sh`
 
@@ -117,10 +106,10 @@ Cybersecurity paketi katta. Istamasangiz: `SETKA_SKIP_CYBER=1 ./scripts/bootstra
 **Shu papkani harness sifatida ochib** chatga yozing:
 
 ```
-/taskstart
+/susi-start
 ```
 
-Tugagach: `/taskend`. Eski alias: `/start-project`.
+Tugagach: `/susi-end`. Eski alias: `/start-project`.
 
 Yoki mahsulot papkasiga ko‘chiring:
 

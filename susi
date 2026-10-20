@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# npx/symlink: haqiqiy papkani top.
 SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ]; do
   DIR="$(cd "$(dirname "$SOURCE")" && pwd)"
@@ -7,4 +6,4 @@ while [ -h "$SOURCE" ]; do
   [ "$SOURCE" != /* ] && SOURCE="$DIR/$SOURCE"
 done
 ROOT="$(cd "$(dirname "$SOURCE")" && pwd)"
-exec "$ROOT/scripts/setka.sh" "$@"
+exec "$ROOT/scripts/susi.sh" "$@"

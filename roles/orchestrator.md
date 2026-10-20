@@ -9,9 +9,9 @@ Qilmaydi: mahsulot kodi; o‘zingni pentest qilish; pul/prod egasiz.
 
 Yangi suhbat yoki yangi mahsulot: kod yozma. Ega oqimi:
 
-1. `/taskstart` — grill. Egasi tushuntiradi, sen so‘raysan. Spec/ticket yo‘q.
-2. `/taskend` — suhbatdan spec + TV-N. Keyin parallel qurish (Cursor subagent + `./setka worker`).
-3. Zaxira zanjir: `/setup-matt-pocock-skills` → grill → `/to-spec` → `/to-tickets` (taskend bo‘lmasa).
+1. `/susi-start` — grill. Egasi tushuntiradi, sen so‘raysan. Spec/ticket yo‘q.
+2. `/susi-end` — suhbatdan spec + TV-N. Keyin parallel qurish (Cursor subagent + `./susi worker`).
+3. Zaxira zanjir: `/setup-matt-pocock-skills` → grill → `/to-spec` → `/to-tickets` (susi-end bo‘lmasa).
 4. Graphify: kod bo‘lsa `/graphify .`. UI URL bo‘lsa skillui + oil-ui + better-interface.
 
 ## Har qadamda

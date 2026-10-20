@@ -23,7 +23,7 @@ had_agents=0
 [ -f "$DST/AGENTS.md" ] && had_agents=1
 
 for rel in \
-  REGLAMENT.md GEMINI.md team.conf bus.sh setka \
+  REGLAMENT.md GEMINI.md team.conf bus.sh susi \
   .gitignore .env.example \
   roles \
   board \
@@ -32,7 +32,7 @@ for rel in \
   docs/agents \
   scene \
   .cursor/agents .cursor/rules .cursor/hooks .cursor/hooks.json .cursor/mcp.json.example \
-  .cursor/commands/taskstart.md .cursor/commands/taskend.md \
+  .cursor/commands/susi-start.md .cursor/commands/susi-end.md \
   .cursor/skills/task-start .cursor/skills/task-end \
   .agents
  do
@@ -57,9 +57,9 @@ chmod +x "$DST/bus.sh" \
   "$DST/scripts/"*.sh \
   "$DST/.cursor/hooks/"*.sh 2>/dev/null || true
 
-chmod +x "$DST/setka" 2>/dev/null || true
+chmod +x "$DST/susi" 2>/dev/null || true
 echo "Setka qo‘llandi: $DST"
 echo "Keyin:"
 echo "  cd \"$DST\""
-echo "  ./setka start"
-echo "Cursor chat: /taskstart  →  tushuntirasiz  →  /taskend"
+echo "  ./susi start"
+echo "Cursor chat: /susi-start  →  tushuntirasiz  →  /susi-end"

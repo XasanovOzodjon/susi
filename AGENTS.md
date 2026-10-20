@@ -8,7 +8,7 @@ Sen Setka tarmog‘idasan. To‘liq qoida: `REGLAMENT.md`. Rol fayli: `roles/<ro
 2. `scripts/live.sh <rol> working|waiting|done "<hozir nima qilyapman>" [TV-N] [bosqich]` — ofis sahnasi uchun.
 3. `board/BOARD.md` va o‘z tegingdagi ticketlarni o‘qi.
 4. Kontekst kerak — avval `graphify-out/GRAPH_REPORT.md` va `graph.json`, keyin Claude-mem, keyin fayllar.
-5. Mahsulot kodi yozishdan oldin: `docs/agents/` + tasdiqlangan ticketlar bormi? Yo‘q bo‘lsa `/taskstart` (grill). Tugagach `/taskend` — spec, ticket, qurish. Kod `/taskend` dan oldin yo‘q.
+5. Mahsulot kodi yozishdan oldin: `docs/agents/` + tasdiqlangan ticketlar bormi? Yo‘q bo‘lsa `/susi-start` (grill). Tugagach `/susi-end` — spec, ticket, qurish. Kod `/susi-end` dan oldin yo‘q.
 
 ## Hech qachon
 

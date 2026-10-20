@@ -7,7 +7,7 @@ bus="${BUS_DIR:-$HOME/bus}"
 graph="$root/graphify-out/GRAPH_REPORT.md"
 tickets="$root/board/BOARD.md"
 
-ctx="SETKA: You are in the Setka harness. Default role=$role. Read AGENTS.md. Intake: /taskstart then owner explains, then /taskend starts spec/tickets/build. Do not write product code until /taskend tickets exist. Prefer graphify-out over grepping the tree. Pentester/QA never patch. Each turn: scripts/live.sh $role working|waiting|done \"what I am doing now\" [TV-N] [stage]. Owner watches the office at http://127.0.0.1:8765. Launch from terminal: ./setka start"
+ctx="SETKA: You are in the Setka harness. Default role=$role. Read AGENTS.md. Intake: /susi-start then owner explains, then /susi-end starts spec/tickets/build. Do not write product code until /susi-end tickets exist. Prefer graphify-out over grepping the tree. Pentester/QA never patch. Each turn: scripts/live.sh $role working|waiting|done \"what I am doing now\" [TV-N] [stage]. Owner watches the office at http://127.0.0.1:8765. Launch from terminal: ./susi start"
 
 if [ -f "$graph" ]; then
   ctx="$ctx Graphify report exists at graphify-out/GRAPH_REPORT.md — query it before reading source."

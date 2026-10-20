@@ -6,4 +6,4 @@ Antigravity skilllari: `.agents/skills/`
 Antigravity agentlari: `.agents/agents/`
 Qoidalar: `.agents/rules/`
 
-Terminal: `./setka start`. Cursor: `/taskstart` (tushuntirasiz) → `/taskend` (qurish). Mahsulot kodi `/taskend` dan oldin yo‘q.
+Terminal: `./susi start`. Cursor: `/susi-start` (tushuntirasiz) → `/susi-end` (qurish). Mahsulot kodi `/susi-end` dan oldin yo‘q.

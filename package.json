@@ -1,12 +1,12 @@
 {
-  "name": "setka",
+  "name": "susi",
   "version": "3.0.0",
-  "description": "Setka — Cursor + Antigravity agent harness. Grill, spec, tickets, then parallel Django/UI build.",
+  "description": "Setka \u2014 Cursor + Antigravity agent harness. Grill, spec, tickets, then parallel Django/UI build.",
   "bin": {
-    "setka": "./setka"
+    "susi": "./susi"
   },
   "files": [
-    "setka",
+    "susi",
     "bus.sh",
     "team.conf",
     "AGENTS.md",
@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/XasanovOzodjon/Setka.git"
+    "url": "git+https://github.com/XasanovOzodjon/susi.git"
   },
   "license": "MIT"
 }

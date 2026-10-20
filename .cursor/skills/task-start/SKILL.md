@@ -1,9 +1,9 @@
 ---
 name: task-start
-description: Start Setka intake. Owner explains the product; you only ask questions. No spec, tickets, or product code until /taskend.
+description: Start Setka intake. Owner explains the product; you only ask questions. No spec, tickets, or product code until /susi-end.
 ---
 
-# /taskstart
+# /susi-start
 
 Sen **orchestrator** san. Mahsulot kodi yo‘q. Scaffold yo‘q.
 
@@ -30,5 +30,5 @@ Javoblarni qisqa yoz: `docs/agents/intake.md` (glossary + qarorlar). ADR faqat b
 
 ## Chegara
 
-- `/to-spec`, ticket, parallel-build — **emas**. Egasi `/taskend` yozmaguncha.
-- Oxirida ayting: «Davom eting. Tugagach chatga `/taskend` yozing.»
+- `/to-spec`, ticket, parallel-build — **emas**. Egasi `/susi-end` yozmaguncha.
+- Oxirida ayting: «Davom eting. Tugagach chatga `/susi-end` yozing.»

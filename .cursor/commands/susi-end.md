@@ -2,7 +2,7 @@
 description: Setka — tushuntirish tugadi. Spec, ticket, keyin qurishni boshlash.
 ---
 
-# /taskend
+# /susi-end
 
 Orchestrator skillini ishlat: `.agents/skills/task-end/SKILL.md`.
 

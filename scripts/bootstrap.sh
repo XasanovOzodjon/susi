@@ -53,19 +53,8 @@ fi
 echo "==> skillui"
 npm install -g skillui || npx --yes skillui --help >/dev/null
 
-echo "==> Graphify CLI"
-if command -v uv >/dev/null 2>&1; then
-  uv tool install graphifyy || uv tool upgrade graphifyy || true
-elif command -v pipx >/dev/null 2>&1; then
-  pipx install graphifyy || pipx upgrade graphifyy || true
-else
-  python3 -m pip install --user graphifyy || echo "ogoh: graphifyy o‘rnatilmadi. Keyin: python3 -m pip install --user graphifyy"
-fi
-export PATH="$HOME/Library/Python/3.12/bin:$HOME/Library/Python/3.11/bin:$HOME/.local/bin:$PATH"
-if command -v graphify >/dev/null 2>&1; then
-  graphify install --platform cursor || true
-  graphify install --platform antigravity || graphify install --platform gemini || true
-fi
+echo "==> Graphify + claude-mem (bir marta, kompyuter)"
+bash "$ROOT/scripts/machine-once.sh" || true
 
 if [ "$SKIP_ECC" = 1 ]; then
   echo "SETKA_SKIP_ECC=1 — ECC o‘tkazildi"
@@ -86,12 +75,13 @@ cat <<'EOF'
 
 Setka bootstrap tugadi.
 
-Qolgan (bir marta, interaktiv):
-  1. Claude-mem (Cursor + Gemini kalit):  npx claude-mem install
-     Cursor ni tanlang, provider = Gemini.
-  2. Strix cloud (ixtiyoriy): .cursor/mcp.json.example ni .cursor/mcp.json ga nusxa, Strix ga login.
-  3. TaskView (ixtiyoriy): self-host yoki board/ bilan ishlang.
-  4. Cursor / Antigravity ni QAYTA oching.
+Graphify va claude-mem shu o‘rnatishda chiqadi (loyihada emas, kompyuterda bir marta).
+Gemini kaliti so‘ralsa, shu yerda kiriting. U ~/.claude-mem/ da qoladi, gitga tushmaydi.
+
+Qolgan ixtiyoriy:
+  1. Strix cloud: .cursor/mcp.json.example ni .cursor/mcp.json ga nusxa.
+  2. TaskView: bo‘lmasa board/ yetadi.
+  3. Cursor / Antigravity ni qayta oching.
 
 Loyiha: chatda /start-project
 EOF

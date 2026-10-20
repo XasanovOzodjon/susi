@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# Setka: o‘rnatish va terminaldan ishga tushirish.
+# Susiezha: o‘rnatish va terminaldan ishga tushirish.
 #
-#   ./setka install [papka]     harnessni papkaga qo‘yadi
-#   npx github:XasanovOzodjon/Setka -- install ~/Loyihalar/app
-#   ./setka start [--yes]       ofis + Cursor + 3 Antigravity
-#   ./setka stop                ofis serverni to‘xtatadi
-#   ./setka status
-#   ./setka worker <rol>        shu rol uchun Antigravity + prompt
-#   ./setka scene               faqat ofis (8765)
+#   ./susi install [papka]     harnessni papkaga qo‘yadi
+#   npx github:XasanovOzodjon/susi -- install ~/Loyihalar/app
+#   ./susi start [--yes]       ofis + Cursor + 3 Antigravity
+#   ./susi stop                ofis serverni to‘xtatadi
+#   ./susi status
+#   ./susi worker <rol>        shu rol uchun Antigravity + prompt
+#   ./susi scene               faqat ofis (8765)
 set -euo pipefail
 
 HERE="$(cd "$(dirname "$0")" && pwd)"
@@ -76,10 +76,10 @@ open_cursor() {
   echo "CURSOR (orchestrator)"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo "  1. Cursor ochiladi — shu papka."
-  echo "  2. Chatga yozing:  /taskstart"
+  echo "  2. Chatga yozing:  /susi-start"
   echo "  3. Loyihani tushuntiring (savol-javob)."
-  echo "  4. Tugagach yozing:  /taskend"
-  echo "     (/taskend spec + ticket + qurishni boshlaydi)"
+  echo "  4. Tugagach yozing:  /susi-end"
+  echo "     (/susi-end spec + ticket + qurishni boshlaydi)"
   if ! pause "[Enter] = Cursor ni ochish, s = o‘tkazish"; then
     echo "  o‘tkazildi"
     return 0
@@ -90,7 +90,7 @@ open_cursor() {
     open -na "Cursor" --args "$ROOT"
   else
     echo "  Cursor topilmadi. Qo‘lda oching: $ROOT"
-    echo "  keyin chatga: /taskstart"
+    echo "  keyin chatga: /susi-start"
   fi
 }
 
@@ -140,7 +140,7 @@ Pentester va QA patch yozmaydi.
 Secretni chat/gitga yozma. Begona rol fayliga tegma.
 
 Hozir: inboxni o‘qi. Ticket bo‘lsa — o‘z TV-N laringni qil. Yo‘q bo‘lsa kut.
-Cursor da egasi /taskend qilgach xat keladi.
+Cursor da egasi /susi-end qilgach xat keladi.
 EOF
 }
 
@@ -151,27 +151,28 @@ cmd_install() {
   fi
   mkdir -p "$dst"
   dst="$(cd "$dst" && pwd)"
+  bash "$ROOT/scripts/machine-once.sh" || true
   if [ "$dst" = "$ROOT" ]; then
-    chmod +x "$ROOT/setka" "$ROOT/bus.sh" "$ROOT/scripts/"*.sh "$ROOT/.cursor/hooks/"*.sh 2>/dev/null || true
+    chmod +x "$ROOT/susi" "$ROOT/bus.sh" "$ROOT/scripts/"*.sh "$ROOT/.cursor/hooks/"*.sh 2>/dev/null || true
     bus_init
-    echo "Setka allaqachon shu papkada: $dst"
-    echo "Ishga tushirish: ./setka start"
+    echo "Susiezha allaqachon shu papkada: $dst"
+    echo "Ishga tushirish: ./susi start"
     return 0
   fi
   bash "$ROOT/scripts/apply-to-project.sh" "$dst"
-  if [ -f "$ROOT/setka" ]; then
-    cp "$ROOT/setka" "$dst/setka"
-    chmod +x "$dst/setka"
+  if [ -f "$ROOT/susi" ]; then
+    cp "$ROOT/susi" "$dst/susi"
+    chmod +x "$dst/susi"
   fi
   mkdir -p "$dst/.cursor/commands"
-  for c in taskstart taskend; do
+  for c in susi-start susi-end; do
     [ -f "$ROOT/.cursor/commands/$c.md" ] && cp "$ROOT/.cursor/commands/$c.md" "$dst/.cursor/commands/$c.md"
   done
   echo
   echo "O‘rnatildi: $dst"
   echo "Keyin:"
   echo "  cd \"$dst\""
-  echo "  ./setka start"
+  echo "  ./susi start"
 }
 
 cmd_start() {
@@ -186,14 +187,14 @@ cmd_start() {
   if [ "${DRYRUN:-}" = 1 ]; then
     echo "[dry-run] $ROOT"
     echo "  ofis http://127.0.0.1:$PORT"
-    echo "  Cursor /taskstart → tushuntirish → /taskend"
+    echo "  Cursor /susi-start → tushuntirish → /susi-end"
     echo "  Antigravity 1 backend, 2 frontend, 3 pentester"
     return 0
   fi
   scene_up
-  bash "$ROOT/scripts/live.sh" orchestrator waiting "Cursor da /taskstart — egasi tushuntiradi" "" grill 2>/dev/null || true
+  bash "$ROOT/scripts/live.sh" orchestrator waiting "Cursor da /susi-start — egasi tushuntiradi" "" grill 2>/dev/null || true
   echo
-  echo "SETKA ISHGA TUSHIRISH"
+  echo "SUSIEZHA ISHGA TUSHIRISH"
   echo "Loyiha: $ROOT"
   echo "Ofis:   http://127.0.0.1:$PORT"
   echo
@@ -208,21 +209,21 @@ cmd_start() {
   echo "TAYYOR"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo "  Ofis:     http://127.0.0.1:$PORT"
-  echo "  Cursor:   /taskstart  →  gapiring  →  /taskend"
-  echo "  To‘xtatish: ./setka stop"
+  echo "  Cursor:   /susi-start  →  gapiring  →  /susi-end"
+  echo "  To‘xtatish: ./susi stop"
   echo
 }
 
 cmd_worker() {
   local role="${1:-}"
-  [ -n "$role" ] || { echo "usage: setka worker <orchestrator|backend|frontend|devops|pentester|qa>" >&2; exit 2; }
+  [ -n "$role" ] || { echo "usage: susi worker <orchestrator|backend|frontend|devops|pentester|qa>" >&2; exit 2; }
   bus_init
   local slot="1"
   case "$role" in
     backend) slot=1 ;;
     frontend) slot=2 ;;
     pentester|qa|devops) slot=3 ;;
-    orchestrator) echo "Orchestrator Cursor da. /taskstart"; open_cursor; return 0 ;;
+    orchestrator) echo "Orchestrator Cursor da. /susi-start"; open_cursor; return 0 ;;
   esac
   YES=1 open_agy "$slot" "$role" "$role" "Rol: $role"
 }
@@ -233,7 +234,7 @@ cmd_status() {
   if lsof -nP -iTCP:"$PORT" -sTCP:LISTEN >/dev/null 2>&1; then
     echo "ofis:  http://127.0.0.1:$PORT  (ishlamoqda)"
   else
-    echo "ofis:  to‘xtagan.  ./setka start  yoki ./setka scene"
+    echo "ofis:  to‘xtagan.  ./susi start  yoki ./susi scene"
   fi
   bash "$ROOT/bus.sh" who 2>/dev/null || true
 }
@@ -244,7 +245,7 @@ case "$cmd" in
   install) cmd_install "${1:-}" ;;
   start|up) cmd_start "$@" ;;
   stop|down) scene_down ;;
-  scene) bus_init; scene_up; echo "To‘xtatish: ./setka stop" ;;
+  scene) bus_init; scene_up; echo "To‘xtatish: ./susi stop" ;;
   worker) cmd_worker "${1:-}" ;;
   status) cmd_status ;;
   -h|--help|help|"") usage ;;
